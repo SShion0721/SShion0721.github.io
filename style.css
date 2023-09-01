@@ -1,0 +1,334 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #2c2c2c;
+    --accent-blue: #2563eb;
+    --border-color: #b0b0b0;
+    --font-serif: 'Noto Serif SC', serif;
+    --font-mono: 'Courier New', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-serif);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    padding: 3rem;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 极简线稿风四周修饰线 */
+.sketch-border {
+    position: fixed;
+    background-color: var(--border-color);
+    opacity: 0.5;
+    z-index: 100;
+}
+
+.sketch-border.top {
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    height: 1px;
+}
+
+.sketch-border.bottom {
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    height: 1px;
+}
+
+.sketch-border.left {
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    width: 1px;
+}
+
+.sketch-border.right {
+    top: 30px;
+    bottom: 30px;
+    right: 30px;
+    width: 1px;
+}
+
+.main-wrapper {
+    max-width: 1000px;
+    margin: 2rem auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* 文字与色彩工具类 */
+.mono-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+.accent-blue {
+    color: var(--accent-blue);
+}
+
+/* 顶部排版 */
+.ep-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
+}
+
+.giant-title {
+    font-size: 5rem;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin: 0.5rem 0;
+}
+
+.sub-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: var(--border-color);
+}
+
+.sub-title span {
+    color: var(--accent-blue);
+}
+
+/* 布局网格 */
+.content-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+}
+
+/* 左侧引言排版（正常横向） */
+.sidebar-quote {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    color: var(--border-color);
+    text-transform: uppercase;
+}
+
+/* 简介区块 */
+.lead-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-tags span {
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.2rem;
+    color: var(--text-color);
+}
+
+.section-divider {
+    width: 50px;
+    height: 1px;
+    background-color: var(--accent-blue);
+    margin: 3rem 0;
+}
+
+/* 线稿风卡片设计 (草图感) */
+.sketch-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid transparent;
+    padding: 0 0 2rem 0;
+    margin-bottom: 3rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.sketch-card:hover {
+    transform: translateX(10px);
+}
+
+.sketch-card:hover h4 {
+    color: var(--accent-blue);
+}
+
+.card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-header h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.sketch-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    max-width: 90%;
+}
+
+.card-footer {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    color: var(--border-color);
+}
+
+/* 响应式调整 */
+@media (max-width: 900px) {
+    body {
+        padding: 1.5rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .sidebar-quote {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 2rem;
+    }
+
+    .giant-title {
+        font-size: 3.5rem;
+    }
+
+    .ep-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* RL Game Specific Styles */
+.rl-game-card {
+    cursor: default !important;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    margin: 2rem 0;
+    border: 1px solid var(--text-color);
+    background: #fdfdfd;
+}
+
+#rl-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+#start-btn {
+    padding: 1rem 2rem;
+    background: var(--text-color);
+    color: white;
+    border: none;
+    font-family: var(--font-mono);
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#start-btn:hover {
+    background: var(--accent-blue);
+    transform: scale(1.05);
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+.toggles {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Simple Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-color);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: var(--accent-blue);
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+}

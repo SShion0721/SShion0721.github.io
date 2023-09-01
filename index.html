@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SION | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+</head>
+
+<body>
+    <div class="sketch-border top"></div>
+    <div class="sketch-border bottom"></div>
+    <div class="sketch-border left"></div>
+    <div class="sketch-border right"></div>
+
+    <div class="main-wrapper">
+        <header class="ep-header">
+            <div class="typography-group">
+                <span class="mono-text accent-blue">PORTFOLIO</span>
+                <h1 class="giant-title">Sion</h1>
+                <h2 class="sub-title">AI <span>&</span> C++</h2>
+            </div>
+        </header>
+
+        <main class="content-grid">
+            <aside class="sidebar">
+                <div class="sidebar-quote">
+                    MATHEMATICS,<br>
+                    POSSESSES NOT ONLY TRUTH,<br>
+                    BUT <span class="accent-blue">SUPREME BEAUTY</span>—<br>
+                    A BEAUTY COLD AND AUSTERE.
+                </div>
+                <div class="mono-text" style="color: var(--border-color); margin-top: 2rem;">
+                    BERTRAND RUSSELL
+                </div>
+            </aside>
+
+            <section class="projects">
+                <div class="sketch-card rl-game-card">
+                    <div class="card-header">
+                        <span class="mono-text accent-blue">01</span>
+                        <h4>NEURAL COLLECTOR</h4>
+                    </div>
+                    <p>强化学习实时演示 (DQN)。AI 正在学习如何在这个 4x4 的网格迷宫中寻找最优路径，避开障碍并收集目标。</p>
+
+                    <div class="game-container">
+                        <canvas id="rl-canvas" width="400" height="400"></canvas>
+                        <div class="game-overlay" id="game-overlay">
+                            <button id="start-btn">INITIALIZE CORE</button>
+                        </div>
+                    </div>
+
+                    <div class="game-controls mono-text">
+                        <div class="stats">
+                            EPISODE: <span id="ep-count">0</span> | SCORE: <span id="cur-score">0</span>
+                        </div>
+                        <div class="toggles">
+                            <label class="switch">
+                                <input type="checkbox" id="insight-toggle">
+                                <span class="slider"></span>
+                                INSIGHT MODE
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="card-footer mono-text">
+                        <span>JS // RL & TENSORFLOW.JS</span>
+                    </div>
+                </div>
+
+                <div class="profile-section" style="margin-top: 3rem;">
+                    <p class="lead-text"> </p>
+                    <div class="tech-tags mono-text">
+                        <span>PyTorch</span>
+                        <span>C++11</span>
+                        <span>Python</span>
+                        <span>Mamba</span>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <a href="https://github.com/SShion0721/nnue_director" target="_blank" class="sketch-card">
+                    <div class="card-header">
+                        <span class="mono-text accent-blue">02</span>
+                        <h4>nnue_director</h4>
+                    </div>
+                    <p>Left 4 Dead 2 神经网络智能导演插件。前瞻性地引入高效可更新神经网络 (NNUE) 评估机制，实现复杂状态机下游戏强度的动态评估与资源的最优分配。</p>
+                    <div class="card-footer mono-text">
+                        <span>C++ // NEURAL NETWORK</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/SShion0721/smart_director" target="_blank" class="sketch-card">
+                    <div class="card-header">
+                        <span class="mono-text accent-blue">03</span>
+                        <h4>smart_director</h4>
+                    </div>
+                    <p>L4D2 终极导演系统。采用极速位运算与创新的 Nav Flow 三维空间分桶感知，内置动态六档累加难度系统与极致的心理压迫博弈逻辑。</p>
+                    <div class="card-footer mono-text">
+                        <span>C++ // ALGORITHM & LOGIC</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/SShion0721/LM-UNet" target="_blank" class="sketch-card">
+                    <div class="card-header">
+                        <span class="mono-text accent-blue">04</span>
+                        <h4>LM-UNet</h4>
+                    </div>
+                    <p>轻量级 Mamba-UNet 前列腺 MRI 图像分割网络。引入空间-通道注意力桥接 (SC-Att-Bridge)，在保持线性复杂度的同时提取全局特征。</p>
+                    <div class="card-footer mono-text">
+                        <span>PYTHON // PLOS ONE (JCR 2区)</span>
+                    </div>
+                </a>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script src="rl-game.js"></script>
+</body>
+
+</html>
